@@ -1,0 +1,83 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: |
+          npm install -g @mermaid-js/mermaid-cli
+          
+      - name: Process Mermaid diagrams
+        run: |
+          find docs -name "*.md" -exec grep -l "```mermaid" {} \; | while read file; do
+            echo "Processing Mermaid diagrams in $file"
+            # Process mermaid diagrams if needed
+          done
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Build documentation site
+        run: |
+          # Create index.html from README.md
+          npm install -g markdown-to-html
+          markdown README.md > index.html
+          
+          # Create _config.yml for Jekyll
+          cat > _config.yml << EOF
+          title: Tiation Documentation Hub
+          description: Central documentation repository for the Tiation ecosystem
+          theme: jekyll-theme-minimal
+          plugins:
+            - jekyll-relative-links
+          relative_links:
+            enabled: true
+            collections: true
+          include:
+            - README.md
+            - CONTRIBUTING.md
+            - LICENSE
+            - docs
+          EOF
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
