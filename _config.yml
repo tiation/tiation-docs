@@ -1,0 +1,43 @@
+title: "Tiation Documentation Hub"
+description: "Central documentation and development resources for the Tiation ecosystem"
+url: "https://tiation.github.io"
+baseurl: "/tiation-docs"
+
+# Theme and plugins
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Site author
+author:
+  name: Tiation Team
+  email: tiatheone@protonmail.com
+
+# Navigation
+header_pages:
+  - docs/REPOSITORY_INDEX.md
+  - docs/guides/development-setup.md
+  - docs/api/README.md
+  - CONTRIBUTING.md
+
+# GitHub repository
+repository: tiation/tiation-docs
+github_username: tiation
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Exclude from processing
+exclude:
+  - .git
+  - .gitignore
+  - node_modules
+  - vendor
+  - assets/src
+  - README.md
