@@ -110,7 +110,7 @@ We welcome contributions to improve our documentation! Please see our [Contribut
 ## 📱 Related Resources
 
 - **[GitHub Pages Site](https://tiation.github.io/tiation-docs/)** - Browse documentation online
-- **[Tiation Main Site](https://tiation.com)** - Company website
+- **[Tiation Main Site](https://github.com/tiation)** - Company website
 - **[Developer Portal](https://dev.tiation.com)** - Developer resources and APIs
 
 ## 📄 License
