@@ -77,7 +77,7 @@ brew install --cask visual-studio-code docker
 ```bash
 # Set up Git identity
 git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
+git config --global user.email "tiatheone@protonmail.com"
 
 # Configure Git preferences
 git config --global init.defaultBranch main
