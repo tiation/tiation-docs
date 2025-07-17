@@ -104,7 +104,7 @@ Official SDKs are available for:
 
 - **Developer Forum**: [forum.tiation.dev](https://forum.tiation.dev)
 - **API Status**: [status.tiation.com](https://status.tiation.com)
-- **Support Email**: api-support@tiation.com
+- **Support Email**: tiatheone@protonmail.com
 
 ---
 

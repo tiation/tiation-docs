@@ -272,7 +272,7 @@ echo 'source ~/.venvs/tiation/bin/activate' >> ~/.bashrc
 - **Documentation**: [tiation-docs](https://github.com/tiation/tiation-docs)
 - **Issues**: Create an issue in the relevant repository
 - **Discord**: Join our developer Discord server
-- **Email**: dev-support@tiation.com
+- **Email**: tiatheone@protonmail.com
 
 ---
 
